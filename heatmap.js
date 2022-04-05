@@ -42,14 +42,14 @@ function main() {
 
     context = canvas.getContext("2d");
     
-    readTextFile("..//condensed/" + (count - 1));
+    readTextFile("./condensed/" + count);
 
     document.getElementById("frame_input").addEventListener("blur", function() {
         console.log(this.value);
         if (!isNaN(parseInt(this.value))) {
             count = parseInt(this.value);
             context.clearRect(0, 0, canvas.width, canvas.height);
-            readTextFile("..//condensed/" + (count));
+            readTextFile("./condensed/" + (count));
         }
       });
 
@@ -64,14 +64,14 @@ function main() {
     $("#zoomin").click(function() {
         scale = scale * 2;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
     
     $("#zoomout").click(function() {
         scale = scale / 2;
         if (scale < 1) scale = 1;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
 
     var diff = 50;
@@ -80,28 +80,28 @@ function main() {
         start_x -= diff;
         if (start_x < 0) start_x = 0;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
 
     $("#right").click(function() {
         start_x += diff;
         if (start_x > 1000) start_x = 1000;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
 
     $("#up").click(function() {
         start_y -= diff;
         if (start_y < 0) start_y = 0;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
 
     $("#down").click(function() {
         start_y += diff;
         if (start_y > 1000) start_y = 1000;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
 
     $("#reset").click(function() {
@@ -109,7 +109,7 @@ function main() {
         start_x = 0;
         start_y = 0;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        readTextFile("..//condensed/" + (count - 1));
+        readTextFile("./condensed/" + (count - 1));
     });
     
 }
@@ -119,7 +119,7 @@ var count = 0;
 
 function do_frame() {
     document.getElementById("frame_input").value = count.toString();
-    readTextFile("..//condensed/" + count++);
+    readTextFile("./condensed/" + count++);
     if (count >= 10000) {
         clearInterval(interval);
         console.log("ended");
